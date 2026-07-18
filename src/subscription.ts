@@ -4,13 +4,13 @@ import categories from './categories';
 import globalGroups from './globalGroups';
 
 export default defineGkdSubscription({
-  id: 233,
-  name: 'Subscription',
+  id: 23312021011,
+  name: 'oppo_gkd_subscription_rules',
   version: 0,
-  author: 'author',
+  author: '夏初临',
   checkUpdateUrl: './gkd.version.json5',
   supportUri: 'https://github.com/gkd-kit/subscription-template',
   categories,
   globalGroups,
-  apps: await batchImportApps(`${import.meta.dirname}/apps`),
+  apps: await batchImportApps('src/apps'),
 });
