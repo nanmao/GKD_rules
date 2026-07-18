@@ -18,7 +18,8 @@ export default defineGkdGlobalGroups([
       {
         key: 1,
         name: '倒计时【跳过 5s】型按钮',
-        matches: '[text~="^[0-9s ]{0,3}跳过|跳过[0-9s ]{0,3}|skip$"][visibleToUser=true]',
+        matches:
+          '[text~="^[0-9s ]{0,3}跳过|跳过[0-9s ]{0,3}|skip$"][visibleToUser=true]',
         action: 'click',
       },
     ],
