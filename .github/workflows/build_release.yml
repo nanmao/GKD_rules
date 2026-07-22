@@ -2,11 +2,12 @@ name: build_release
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+
 jobs:
   build_release:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v7
 
@@ -23,29 +24,12 @@ jobs:
           version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
-      - name: Git commit
-        id: commit
-        run: |
-          git config --local user.email github-actions[bot]@users.noreply.github.com
-          git config --local user.name github-actions[bot]
-          git status
-          git add .
-          git commit -a -m "chore: v${{steps.version.outputs.version}}" --allow-empty
-        continue-on-error: true
-
-      - name: Git push
-        if: ${{ steps.commit.outcome == 'success' }}
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          tags: true
-
       - name: Create Release
-        if: ${{ steps.commit.outcome == 'success' }}
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: v${{ steps.version.outputs.version }}
           name: Release ${{ steps.version.outputs.version }}
           body_path: ./dist/CHANGELOG.md
+          fail_on_unmatched_files: false
+          make_latest: true
