@@ -8,9 +8,11 @@ export default defineGkdSubscription({
   name: 'oppo_gkd_subscription_rules',
   version: 0,
   author: '夏初临',
+
   updateUrl:
     'https://raw.githubusercontent.com/nanmao/GKD_rules/main/dist/gkd.json5',
-  checkUpdateUrl: './gkd.version.json5',
+  checkUpdateUrl:
+    'https://raw.githubusercontent.com/nanmao/GKD_rules/main/dist/gkd.version.json5',
   supportUri: 'https://github.com/gkd-kit/subscription-template',
   categories,
   globalGroups,
