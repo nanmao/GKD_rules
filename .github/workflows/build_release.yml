@@ -2,15 +2,20 @@
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+
 jobs:
   build_release:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '>=22'
 
       - uses: pnpm/action-setup@v4
 
@@ -26,9 +31,8 @@ jobs:
       - name: Git commit
         id: commit
         run: |
-          git config --local user.email github-actions[bot]@users.noreply.github.com
-          git config --local user.name github-actions[bot]
-          git status
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add .
           git commit -a -m "chore: v${{steps.version.outputs.version}}"
         continue-on-error: true
