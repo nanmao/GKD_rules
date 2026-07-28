@@ -55,7 +55,7 @@ export default defineGkdApp({
           name: '悬浮广告关闭',
           matches: '@ImageView[width=49][height=49] <<n [vid="w_"]',
           action: 'clickCenter',
-          snapshotUrls: 'https://i.gkd.li/snapshot/1785139130439',
+          snapshotUrls: 'https://i.gkd.li/i/30439674',
         },
       ],
     },
