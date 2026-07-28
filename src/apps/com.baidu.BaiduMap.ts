@@ -8,7 +8,6 @@ export default defineGkdApp({
       key: 0,
       name: '功能类-关闭弹窗',
       desc: '点击首页广告中的关闭按钮',
-      actionMaximum: 1,
       resetMatch: 'match',
       activityIds: 'com.baidu.baidumaps.MapsActivity',
       rules: [
