@@ -9,10 +9,9 @@ export default defineGkdSubscription({
   version: 0,
   author: '夏初临',
 
-  updateUrl:
-    'https://fastly.jsdelivr.net/gh/nanmao/GKD_rules@main/dist/gkd.json5',
+  updateUrl: 'https://cdn.jsdelivr.net/gh/nanmao/GKD_rules@main/dist/gkd.json5',
   checkUpdateUrl:
-    'https://fastly.jsdelivr.net/gh/nanmao/GKD_rules@main/dist/gkd.version.json5',
+    'https://cdn.jsdelivr.net/gh/nanmao/GKD_rules@main/dist/gkd.version.json5',
   supportUri: 'https://github.com/gkd-kit/subscription-template',
   categories,
   globalGroups,
