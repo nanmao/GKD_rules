@@ -16,7 +16,7 @@ export default defineGkdApp({
           key: 0,
           name: 'yellow_banner_close',
           fastQuery: true,
-          matches: '[vid="yellow_banner_close"]',
+          matches: '[vid="yellow_banner_close"][visibleToUser=true]',
           action: 'clickCenter',
         },
       ],
